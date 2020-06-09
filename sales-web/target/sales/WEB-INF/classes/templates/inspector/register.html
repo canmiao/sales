@@ -1,0 +1,152 @@
+<div class="rightCont">
+    <h2 class="title">审核管理<a href="javascript:;" class="add" id="insert">新增质检单</a></h2>
+    <div class="searchBar">
+        <h2 class="addNewStyle">筛选查询</h2>
+        <div class="searchInput">
+            <label for="keyWord">输入搜索：</label>
+            <input type="text" placeholder="输入搜索条件" id="keyWord"/>
+            <div class="searchBtn">
+                <input type="button" value="查询" id="search" style="width: 80px;"/>
+            </div>
+
+        </div>
+    </div>
+    <div class="table-div tabel">
+        <h2 class="addNewStyle">数据列表</h2>
+        <table class="table table-striped" id="detail_tb"></table>
+    </div>
+
+
+</div>
+
+<!--model模态框-->
+<div class="masker addPop" id="locationInfoModel">
+    <form id="saveForm" enctype="multipart/form-data">
+        <div class="innerCont">
+            <h2 class="addNewStyle"><span id="model-label">修改教室</span><span class="imgP"><img src="images/u469.png" alt=""/></span>
+            </h2>
+            <input type="hidden" id="id" name="id"/>
+            <div class="icCont classroom ">
+                <ul>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="checkOrder">送检单号:</label>
+                        <input type="text" value="" id="checkOrder" name="checkOrder"/>
+                    </li>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="tableMakedate">制单日期:</label>
+                        <input id="tableMakedate" type="date" value="" name="tableMakedate"/>
+                    </li>
+                    <div style="clear:both;"></div>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="checker">送检员:</label>
+                        <input type="text" value="" id="checker" name="checker"/>
+                    </li>
+                    <li>
+                        <i style="left:40px;">*</i>
+                        <label for="checkerPhone">送检员电话:</label>
+                        <input id="checkerPhone" type="text" value="" name="checkerPhone"/>
+                    </li>
+                    <div style="clear:both;"></div>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="checkDate">送检时间:</label>
+                        <input id="checkDate" type="date" value="" name="checkDate"/>
+                    </li>
+
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="cheeckNumber">送检数量:</label>
+                        <input type="text" value="" id="cheeckNumber" name="cheeckNumber"/>
+                    </li>
+                    <div style="clear:both;"></div>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="checkType">送检类型:</label>
+                        <input id="checkType" type="text" value="" name="checkType"/>
+                    </li>
+
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="specification">送检规格:</label>
+                        <input id="specification" type="text" name="specification"/>
+                    </li>
+                    <div style="clear:both;"></div>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="produceName">产品名称:</label>
+                        <input id="produceName" type="text" name="produceName"/>
+                    </li>
+
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="checkProduceNumber">产品编号:</label>
+                        <input type="text" value="" id="checkProduceNumber" name="checkProduceNumber"/>
+                    </li>
+                    <div style="clear:both;"></div>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="checkAmount">抽样数量:</label>
+                        <input name="checkAmount" id="checkAmount" style="border:1px solid #ddd"></input>
+                    </li>
+
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="checkResult">检验情况:</label>
+                        <input type="text" value="" id="checkResult" name="checkResult"/>
+                    </li>
+                    <div style="clear:both;"></div>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="badNumber">不良数量:</label>
+                        <input name="badNumber" id="badNumber" style="border:1px solid #ddd"></input>
+                    </li>
+
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="judge">判定:</label>
+                        <input type="text" value="" id="judge" name="judge"/>
+                    </li>
+                    <div style="clear:both;"></div>
+                   <!--<li>
+                        <i style="left:80px;">*</i>
+                        <label for="checkNote">备注:</label>
+                        <input name="checkNote" id="checkNote" style="border:1px solid #ddd"></input>
+                    </li>-->
+
+                </ul>
+            </div>
+            <div class="bottomBtn">
+                <input type="button" value="取消" class="cancel" id="cancel"/>
+                <input type="button" value="确认" class="submit" id="confirm_submit"/>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div class="masker addPop" id="locationInfoModel2">
+    <div class="innerCont">
+        <h2 class="addNewStyle"><span id="model-label2">修改教室</span><span class="imgP"><img src="images/u469.png" alt=""/></span>
+        </h2>
+
+        <div class="icCont classroom">
+            <ul>
+                <li>
+                    <input type="hidden" id="locationId2"/>
+                    <label for="locationCode2">是否删除:</label>
+                    <input type="text" value="" id="locationCode2" disabled="true"/>
+                </li>
+            </ul>
+        </div>
+        <div class="bottomBtn">
+            <input type="button" value="取消" class="cancel" id="cancel2"/>
+            <input type="button" value="确认" class="submit" id="confirm_submit2"/>
+        </div>
+    </div>
+</div>
+
+<script src="js/inspector/register.js"></script>
+<!--<script src="js/inspector/check.js" language="JavaScript"/>-->

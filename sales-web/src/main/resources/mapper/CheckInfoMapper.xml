@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.business.mapper.CheckInfoMapper">
+  <resultMap id="BaseResultMap" type="com.business.bean.CheckInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="input_id" jdbcType="BIGINT" property="inputId" />
+    <result column="check_order" jdbcType="VARCHAR" property="checkOrder" />
+    <result column="table_makedate" jdbcType="TIMESTAMP" property="tableMakedate" />
+    <result column="checker" jdbcType="VARCHAR" property="checker" />
+    <result column="checker_phone" jdbcType="VARCHAR" property="checkerPhone" />
+    <result column="check_date" jdbcType="TIMESTAMP" property="checkDate" />
+    <result column="cheeck_number" jdbcType="VARCHAR" property="cheeckNumber" />
+    <result column="provider" jdbcType="VARCHAR" property="provider" />
+    <result column="provider_phone" jdbcType="VARCHAR" property="providerPhone" />
+    <result column="check_type" jdbcType="VARCHAR" property="checkType" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="produce_name" jdbcType="VARCHAR" property="produceName" />
+    <result column="check_produce_number" jdbcType="VARCHAR" property="checkProduceNumber" />
+    <result column="check_amount" jdbcType="VARCHAR" property="checkAmount" />
+    <result column="check_result" jdbcType="VARCHAR" property="checkResult" />
+    <result column="bad_number" jdbcType="VARCHAR" property="badNumber" />
+    <result column="judge" jdbcType="VARCHAR" property="judge" />
+    <result column="check_note" jdbcType="VARCHAR" property="checkNote" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+
+  <select id="selectAllCheckInfo" resultMap="BaseResultMap">
+    SELECT *
+    FROM tb_check
+    <where>
+      <if test="keyWord != null and keyWord != ''">
+        <bind name="kw" value="'%' + keyWord + '%'" />
+        check_order LIKE #{kw} or table_makedate LIKE binary #{kw} or checker LIKE binary #{kw} or checker_phone LIKE #{kw} or  check_date LIKE binary #{kw} or
+        cheeck_number LIKE #{kw} or provider LIKE #{kw} or provider_phone LIKE #{kw} or check_type LIKE #{kw} or  model LIKE #{kw} or
+        note LIKE #{kw} or produce_name LIKE #{kw} or check_produce_number LIKE #{kw} or check_amount LIKE #{kw} or  check_result LIKE #{kw} or
+        bad_number LIKE #{kw} or judge LIKE #{kw} or check_note LIKE #{kw}
+      </if>
+    </where>
+    order by create_time desc
+  </select>
+</mapper>

@@ -1,0 +1,167 @@
+<div class="rightCont">
+    <h2 class="title">退货单登记<a href="javascript:;" class="add" id="insert">新增</a></h2>
+    <div class="searchBar">
+        <h2 class="addNewStyle">筛选查询</h2>
+        <div class="searchInput">
+            <label for="keyWord">输入搜索：</label>
+            <input type="text" placeholder="输入搜索条件" id="keyWord"/>
+            <div class="searchBtn">
+                <input type="button" value="查询" id="search" style="width: 80px;"/>
+                <!--<input type="button" value="导出" id="export" style="width: 50px;"/>-->
+            </div>
+
+        </div>
+    </div>
+    <div class="table-div tabel">
+        <h2 class="addNewStyle">数据列表</h2>
+        <table class="table table-striped" id="detail_tb"></table>
+    </div>
+
+
+</div>
+
+<!--修改-->
+<div class="masker addPop" id="locationInfoModel">
+    <form id="saveForm" enctype="multipart/form-data">
+        <div class="innerCont">
+            <h2 class="addNewStyle"><span id="model-label">修改教室</span><span class="imgP"><img src="images/u469.png" alt=""/></span>
+            </h2>
+            <input type="hidden" id="locationId" name="id" />
+            <div class="icCont classroom ">
+                <ul>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="orderNumber">订单号:</label>
+                        <input type="text" value="" id="orderNumber" name="orderNumber"/>
+                    </li>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="tableMakedate">制表日期:</label>
+                        <input id="tableMakedate" type="date" value="" name="tableMakedate"/>
+                    </li>
+
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="provider">供应商:</label>
+                        <input id="provider" type="text" name="provider"/>
+                    </li>
+                    <li>
+                        <i style="left:40px;">*</i>
+                        <label for="providerPhone">供应商电话:</label>
+                        <input type="text" value="" id="providerPhone" name="providerPhone"/>
+                    </li>
+
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="returnManber">退货员:</label>
+                        <input id="returnManber" type="text" name="returnManber"/>
+                    </li>
+                    <li>
+                        <i style="left:40px;">*</i>
+                        <label for="returnManberPhone">退货员电话:</label>
+                        <input type="text" value="" id="returnManberPhone" name="returnManberPhone"/>
+                    </li>
+                    <div style="clear:both;"></div>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="receiveDate">收货日期:</label>
+                        <input id="receiveDate" type="date" name="receiveDate"/>
+                    </li>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="sreturnDate">退货日期:</label>
+                        <input id="sreturnDate" type="date" name="sreturnDate"/>
+                    </li>
+                    <div style="clear:both;"></div>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="warehouseNumber">仓库号:</label>
+                        <input id="warehouseNumber" type="text" name="warehouseNumber	"/>
+                    </li>
+                    <!--
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="product">产品:</label>
+                        <input id="product" type="text" value="" name="product"/>
+                    </li>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="productName">名称:</label>
+                        <input type="text" value="" id="productName" name="productName"/>
+                    </li>
+                    <div style="clear:both;"></div>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="model">型号:</label>
+                        <input id="model" type="text" name="model"/>
+                    </li>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="number">数量:</label>
+                        <input type="text" id="number" name="number"/>
+                    </li>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="unit">单位:</label>
+                        <input name="unit" id="unit" type="text"/>
+                    </li>
+                    <div style="clear:both;"></div>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="unitPrice">单价:</label>
+                        <input type="text" id="unitPrice" name="unitPrice"/>
+                    </li>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="totalNumber">合计:</label>
+                        <input name="totalNumber" id="totalNumber" type="text"/>
+                    </li>
+                    <div style="clear:both;"></div>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="warehouseAddress">库位地址:</label>
+                        <input type="text" id="warehouseAddress" name="warehouseAddress"/>
+                    </li>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="reasion">退货原因:</label>
+                        <input name="reasion" id="reasion" type="text"/>
+                    </li>
+-->
+                </ul>
+            </div>
+
+
+            <div class="bottomBtn">
+                <input type="button" value="取消" class="cancel" id="cancel"/>
+                <input type="button" value="提交" class="submit" id="confirm_submit"/>
+            </div>
+        </div>
+    </form>
+</div>
+
+//删除
+
+<div class="masker addPop" id="locationInfoModel2">
+    <div class="innerCont">
+        <h2 class="addNewStyle"><span id="model-label2">修改教室</span><span class="imgP"><img src="images/u469.png" alt=""/></span>
+        </h2>
+
+        <div class="icCont classroom">
+            <ul>
+                <li>
+                    <input type="hidden" id="locationId2"/>
+                    <label for="locationCode2">是否删除:</label>
+                    <input type="text" value="" id="locationCode2" disabled="true"/>
+                </li>
+            </ul>
+        </div>
+        <div class="bottomBtn">
+            <input type="button" value="取消" class="cancel" id="cancel2"/>
+            <input type="button" value="确认" class="submit" id="confirm_submit2"/>
+        </div>
+    </div>
+</div>
+
+<script src="js/salesperson/back.js" language="JavaScript"/>
+<!--<script src="js/business/location.js" language="JavaScript"/>-->

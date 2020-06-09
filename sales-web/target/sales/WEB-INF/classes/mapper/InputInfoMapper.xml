@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.business.mapper.InputInfoMapper">
+  <resultMap id="BaseResultMap" type="com.business.bean.InputInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="purchase_id" jdbcType="BIGINT" property="purchaseId" />
+    <result column="order_number" jdbcType="VARCHAR" property="orderNumber" />
+    <result column="table_makedate" jdbcType="TIMESTAMP" property="tableMakedate" />
+    <result column="provider" jdbcType="VARCHAR" property="provider" />
+    <result column="provider_code" jdbcType="VARCHAR" property="providerCode" />
+    <result column="provider_phone" jdbcType="VARCHAR" property="providerPhone" />
+    <result column="payment_method" jdbcType="VARCHAR" property="paymentMethod" />
+    <result column="cu_type" jdbcType="VARCHAR" property="cuType" />
+    <result column="pay_account" jdbcType="VARCHAR" property="payAccount" />
+    <result column="incoming_part" jdbcType="VARCHAR" property="incomingPart" />
+    <result column="incoming_part_phone" jdbcType="VARCHAR" property="incomingPartPhone" />
+    <result column="shipping_date" jdbcType="TIMESTAMP" property="shippingDate" />
+    <result column="delivery_requirements" jdbcType="VARCHAR" property="deliveryRequirements" />
+    <result column="input_type" jdbcType="VARCHAR" property="inputType" />
+    <result column="warehouse_number" jdbcType="VARCHAR" property="warehouseNumber" />
+    <result column="input_note" jdbcType="VARCHAR" property="inputNote" />
+    <result column="product" jdbcType="VARCHAR" property="product" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="number" jdbcType="INTEGER" property="number" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="combine" jdbcType="DOUBLE" property="combine" />
+    <result column="produce_note" jdbcType="VARCHAR" property="produceNote" />
+    <result column="another_note" jdbcType="VARCHAR" property="anotherNote" />
+    <result column="audit" jdbcType="VARCHAR" property="audit" />
+    <result column="keep_accounts" jdbcType="VARCHAR" property="keepAccounts" />
+    <result column="department_head" jdbcType="VARCHAR" property="departmentHead" />
+    <result column="controller" jdbcType="VARCHAR" property="controller" />
+    <result column="table_maker" jdbcType="VARCHAR" property="tableMaker" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+
+
+  <select id="selectAllInputInfo" resultMap="BaseResultMap">
+    SELECT *
+    FROM tb_input
+    <where>
+      <if test="keyWord != null and keyWord != ''">
+        <bind name="kw" value="'%' + keyWord + '%'" />
+        order_number LIKE #{kw} or table_makedate LIKE binary#{kw} or provider LIKE #{kw} or provider_code LIKE #{kw} or
+        provider_phone LIKE #{kw} or payment_method LIKE #{kw} or cu_type LIKE #{kw} or pay_account LIKE #{kw} or
+        incoming_part LIKE #{kw} or incoming_part_phone LIKE #{kw} or shipping_date LIKE binary#{kw} or delivery_requirements LIKE #{kw} or
+        input_type LIKE #{kw} or warehouse_number LIKE #{kw} or input_note LIKE #{kw} or product LIKE #{kw} or
+        model LIKE #{kw} or number LIKE #{kw} or address LIKE #{kw} or combine LIKE #{kw} or
+        produce_note LIKE #{kw} or audit LIKE #{kw} or keep_accounts LIKE #{kw} or department_head LIKE #{kw} or
+        controller LIKE #{kw} or table_maker LIKE #{kw} or another_note LIKE #{kw}
+      </if>
+    </where>
+    order by create_time desc
+  </select>
+</mapper>

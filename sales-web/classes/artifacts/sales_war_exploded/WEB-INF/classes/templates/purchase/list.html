@@ -1,0 +1,110 @@
+<div class="rightCont">
+    <h2 class="title">采购单审核</h2>
+    <div class="searchBar">
+        <h2 class="addNewStyle">筛选查询</h2>
+        <div class="searchInput">
+            <label for="keyWord">输入搜索：</label>
+            <input type="text" placeholder="输入搜索条件" id="keyWord"/>
+            <div class="searchBtn">
+                <input type="button" value="查询" id="search" style="width: 80px;"/>
+                <!--<input type="button" value="导出" id="export" style="width: 50px;"/>-->
+            </div>
+
+        </div>
+    </div>
+    <div class="table-div tabel">
+        <h2 class="addNewStyle">数据列表</h2>
+        <table class="table table-striped" id="detail_tb"></table>
+    </div>
+
+
+</div>
+
+<!--修改-->
+<div class="masker addPop" id="locationInfoModel">
+    <form id="saveForm" enctype="multipart/form-data">
+        <div class="innerCont">
+            <h2 class="addNewStyle"><span id="model-label">修改教室</span><span class="imgP"><img src="images/u469.png" alt=""/></span>
+            </h2>
+            <input type="hidden" id="locationId" name="id" />
+
+            <div class="icCont classroom ">
+                <ul>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="orderNumber">采购订单号:</label>
+                        <input type="text" value="" id="orderNumber" name="orderNumber"/>
+                    </li>
+                    <li>
+                        <i style="left:60px;">*</i>
+                        <label for="tableMakedate">制表日期:</label>
+                        <input id="tableMakedate" type="date" value="" name="tableMakedate"/>
+                    </li>
+                    <div style="clear:both;"></div>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="provider">供应商:</label>
+                        <input id="provider" type="text" name="provider"/>
+                    </li>
+                    <li>
+                        <i style="left:60px;">*</i>
+                        <label for="providerLinkmanPhone">供应商电话:</label>
+                        <input id="providerLinkmanPhone" type="text" name="providerLinkmanPhone"/>
+                    </li>
+                    <div style="clear:both;"></div>
+                    <li>
+                        <i style="left: 52px;">*</i>
+                        <label for="providerCode">供应商代码:</label>
+                        <input id="providerCode" type="text" name="providerCode"/>
+                    </li>
+                    <li>
+                        <i style="left:60px;">*</i>
+                        <label for="purchaseman">采购员:</label>
+                        <input id="purchaseman" type="text" name="purchaseman"/>
+                    </li>
+                    <div style="clear:both;"></div>
+                    <li>
+                        <i style="left:80px;">*</i>
+                        <label for="purchasemanPhone">采购员联系电话:</label>
+                        <input id="purchasemanPhone" type="text" name="purchasemanPhone"/>
+                    </li>
+
+
+                </ul>
+            </div>
+
+
+
+            <div class="bottomBtn">
+                <input type="button" value="取消" class="cancel" id="cancel"/>
+                <input type="button" value="确认" class="submit" id="confirm_submit"/>
+            </div>
+        </div>
+    </form>
+</div>
+
+//删除
+
+<div class="masker addPop" id="locationInfoModel2">
+    <div class="innerCont">
+        <h2 class="addNewStyle"><span id="model-label2">修改教室</span><span class="imgP"><img src="images/u469.png" alt=""/></span>
+        </h2>
+
+        <div class="icCont classroom">
+            <ul>
+                <li>
+                    <input type="hidden" id="locationId2"/>
+                    <label for="locationCode2">是否删除:</label>
+                    <input type="text" value="" id="locationCode2" disabled="true"/>
+                </li>
+            </ul>
+        </div>
+        <div class="bottomBtn">
+            <input type="button" value="取消" class="cancel" id="cancel2"/>
+            <input type="button" value="确认" class="submit" id="confirm_submit2"/>
+        </div>
+    </div>
+</div>
+
+<script src="js/purchase/list.js" language="JavaScript"/>
+<!--<script src="js/business/location.js" language="JavaScript"/>-->

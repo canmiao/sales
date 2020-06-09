@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.business.mapper.PurchaseInfoMapper">
+  <resultMap id="BaseResultMap" type="com.business.bean.PurchaseInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="sale_id" jdbcType="BIGINT" property="saleId" />
+    <result column="order_number" jdbcType="VARCHAR" property="orderNumber" />
+    <result column="table_makedate" jdbcType="TIMESTAMP" property="tableMakedate" />
+    <result column="purchaseman" jdbcType="VARCHAR" property="purchaseman" />
+    <result column="purchaseman_code" jdbcType="VARCHAR" property="purchasemanCode" />
+    <result column="purchaseman_phone" jdbcType="VARCHAR" property="purchasemanPhone" />
+    <result column="purchase_date" jdbcType="TIMESTAMP" property="purchaseDate" />
+    <result column="purchase_note" jdbcType="VARCHAR" property="purchaseNote" />
+    <result column="provider" jdbcType="VARCHAR" property="provider" />
+    <result column="provider_code" jdbcType="VARCHAR" property="providerCode" />
+    <result column="provider_linkman" jdbcType="VARCHAR" property="providerLinkman" />
+    <result column="provider_linkman_phone" jdbcType="VARCHAR" property="providerLinkmanPhone" />
+    <result column="provider_adress" jdbcType="VARCHAR" property="providerAdress" />
+    <result column="produce_number" jdbcType="VARCHAR" property="produceNumber" />
+    <result column="produce_name" jdbcType="VARCHAR" property="produceName" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="amount" jdbcType="INTEGER" property="amount" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="unit_price" jdbcType="DOUBLE" property="unitPrice" />
+    <result column="predict_goods_arrival_date" jdbcType="TIMESTAMP" property="predictGoodsArrivalDate" />
+    <result column="input_bar_code" jdbcType="VARCHAR" property="inputBarCode" />
+    <result column="warehouse_adress" jdbcType="VARCHAR" property="warehouseAdress" />
+    <result column="purchase_produce_sum" jdbcType="DOUBLE" property="purchaseProduceSum" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="another_note" jdbcType="VARCHAR" property="anotherNote" />
+    <result column="purchase_receive_adress" jdbcType="VARCHAR" property="purchaseReceiveAdress" />
+    <result column="clearing_form" jdbcType="VARCHAR" property="clearingForm" />
+    <result column="containing_rate" jdbcType="DOUBLE" property="containingRate" />
+    <result column="transportatino_way" jdbcType="VARCHAR" property="transportatinoWay" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+
+  <select id="selectAllPurchaseInfo" resultMap="BaseResultMap">
+    SELECT *
+    FROM tb_purchase
+    <where>
+      <if test="keyWord != null and keyWord != ''">
+        <bind name="kw" value="'%' + keyWord + '%'" />
+        sale_id LIKE #{kw} or order_number LIKE #{kw} or table_makedate LIKE binary #{kw} or purchaseman LIKE #{kw} or  purchaseman_code LIKE #{kw} or
+        purchaseman_phone LIKE #{kw} or purchase_date LIKE binary #{kw} or purchase_note LIKE #{kw} or provider LIKE #{kw} or
+        provider_code LIKE #{kw} or provider_linkman LIKE #{kw} or provider_linkman_phone LIKE #{kw} or provider_adress LIKE #{kw} or
+        produce_number LIKE #{kw} or produce_name LIKE #{kw} or
+        model LIKE #{kw}or amount LIKE #{kw} or unit LIKE #{kw} or note LIKE #{kw} or another_note LIKE #{kw} or
+        unit_price LIKE #{kw} or predict_goods_arrival_date LIKE binary #{kw} or input_bar_code LIKE #{kw} or warehouse_adress LIKE #{kw} or
+        purchase_produce_sum LIKE #{kw} or purchase_receive_adress LIKE #{kw} or clearing_form LIKE #{kw} or containing_rate LIKE #{kw} or
+        transportatino_way LIKE #{kw}
+      </if>
+    </where>
+    order by create_time desc
+  </select>
+</mapper>

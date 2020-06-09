@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.business.mapper.PurchaseRetundInfoMapper">
+  <resultMap id="BaseResultMap" type="com.business.bean.PurchaseRetundInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="check_id" jdbcType="BIGINT" property="checkId" />
+    <result column="order_number" jdbcType="VARCHAR" property="orderNumber" />
+    <result column="table_makedate" jdbcType="TIMESTAMP" property="tableMakedate" />
+    <result column="provider" jdbcType="VARCHAR" property="provider" />
+    <result column="provider_code" jdbcType="VARCHAR" property="providerCode" />
+    <result column="provider_phone" jdbcType="VARCHAR" property="providerPhone" />
+    <result column="return_man" jdbcType="VARCHAR" property="returnMan" />
+    <result column="return_man_phone" jdbcType="VARCHAR" property="returnManPhone" />
+    <result column="return_date" jdbcType="TIMESTAMP" property="returnDate" />
+    <result column="predict_receive_time" jdbcType="TIMESTAMP" property="predictReceiveTime" />
+    <result column="warehouse_number" jdbcType="VARCHAR" property="warehouseNumber" />
+    <result column="return_reasion" jdbcType="VARCHAR" property="returnReasion" />
+    <result column="return_note" jdbcType="VARCHAR" property="returnNote" />
+    <result column="return_produce" jdbcType="VARCHAR" property="returnProduce" />
+    <result column="return_produce_model" jdbcType="VARCHAR" property="returnProduceModel" />
+    <result column="return_produce_amount" jdbcType="INTEGER" property="returnProduceAmount" />
+    <result column="return_produce_unit" jdbcType="VARCHAR" property="returnProduceUnit" />
+    <result column="return_produce_unit_price" jdbcType="DOUBLE" property="returnProduceUnitPrice" />
+    <result column="warehouse_adress" jdbcType="VARCHAR" property="warehouseAdress" />
+    <result column="combine" jdbcType="DOUBLE" property="combine" />
+    <result column="return_produce_note" jdbcType="VARCHAR" property="returnProduceNote" />
+    <result column="another_note" jdbcType="VARCHAR" property="anotherNote" />
+    <result column="audit" jdbcType="VARCHAR" property="audit" />
+    <result column="keep_account" jdbcType="VARCHAR" property="keepAccount" />
+    <result column="department_head" jdbcType="VARCHAR" property="departmentHead" />
+    <result column="table_maker" jdbcType="VARCHAR" property="tableMaker" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modigy_time" jdbcType="TIMESTAMP" property="modigyTime" />
+  </resultMap>
+
+  <select id="selectAllPurchaseRetundInfo" resultMap="BaseResultMap">
+    SELECT *
+    FROM tb_purchase_retund
+    <where>
+      <if test="keyWord != null and keyWord != ''">
+        <bind name="kw" value="'%' + keyWord + '%'" />
+        order_number LIKE #{kw} or table_makedate LIKE binary #{kw} or provider LIKE #{kw} or provider_code LIKE #{kw} or
+        provider_phone LIKE #{kw} or return_man LIKE #{kw} or return_man_phone LIKE #{kw} or return_date LIKE binary #{kw} or
+        predict_receive_time LIKE #{kw} or warehouse_number LIKE #{kw} or return_reasion LIKE #{kw} or return_note LIKE #{kw} or
+        return_produce LIKE #{kw} or return_produce_model LIKE #{kw} or return_produce_amount LIKE #{kw} or return_produce_unit LIKE #{kw} or
+        return_produce_unit_price LIKE #{kw} or warehouse_adress LIKE #{kw} or combine LIKE #{kw} or return_produce_note LIKE #{kw} or
+        another_note LIKE #{kw} or audit LIKE #{kw} or keep_account LIKE #{kw} or department_head LIKE #{kw} or
+        table_maker LIKE #{kw}
+      </if>
+    </where>
+    order by create_time desc
+  </select>
+</mapper>

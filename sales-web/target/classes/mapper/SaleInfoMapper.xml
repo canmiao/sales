@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.business.mapper.SaleInfoMapper">
+  <resultMap id="BaseResultMap" type="com.business.bean.SaleInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="product" jdbcType="VARCHAR" property="product" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="number" jdbcType="INTEGER" property="number" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="unit_price" jdbcType="DOUBLE" property="unitPrice" />
+    <result column="warehouse_address" jdbcType="VARCHAR" property="warehouseAddress" />
+    <result column="combine" jdbcType="DOUBLE" property="combine" />
+    <result column="order_number" jdbcType="VARCHAR" property="orderNumber" />
+    <result column="table_make_time" jdbcType="TIMESTAMP" property="tableMakeTime" />
+    <result column="customer" jdbcType="VARCHAR" property="customer" />
+    <result column="customer_code" jdbcType="VARCHAR" property="customerCode" />
+    <result column="customer_phone" jdbcType="VARCHAR" property="customerPhone" />
+    <result column="customer_company" jdbcType="VARCHAR" property="customerCompany" />
+    <result column="payment_type" jdbcType="VARCHAR" property="paymentType" />
+    <result column="cu_type" jdbcType="VARCHAR" property="cuType" />
+    <result column="payment_account" jdbcType="VARCHAR" property="paymentAccount" />
+    <result column="saler" jdbcType="VARCHAR" property="saler" />
+    <result column="saler_code" jdbcType="VARCHAR" property="salerCode" />
+    <result column="saler_phone" jdbcType="VARCHAR" property="salerPhone" />
+    <result column="order_time" jdbcType="TIMESTAMP" property="orderTime" />
+    <result column="saler_remark" jdbcType="VARCHAR" property="salerRemark" />
+    <result column="receiver" jdbcType="VARCHAR" property="receiver" />
+    <result column="receiver_address" jdbcType="VARCHAR" property="receiverAddress" />
+    <result column="receiver_express_code" jdbcType="VARCHAR" property="receiverExpressCode" />
+    <result column="receiver_mobilephone" jdbcType="VARCHAR" property="receiverMobilephone" />
+    <result column="receiver_phone" jdbcType="VARCHAR" property="receiverPhone" />
+    <result column="receiver_province" jdbcType="VARCHAR" property="receiverProvince" />
+    <result column="receiver_city" jdbcType="VARCHAR" property="receiverCity" />
+    <result column="receiver_county" jdbcType="VARCHAR" property="receiverCounty" />
+    <result column="product_comment" jdbcType="VARCHAR" property="productComment" />
+    <result column="another_product_comment" jdbcType="VARCHAR" property="anotherProductComment" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+
+
+  <select id="selectAllSaleInfo" resultMap="BaseResultMap">
+    SELECT *
+    FROM tb_saleinfo
+    <where>
+      <if test="keyWord != null and keyWord != ''">
+        <bind name="kw" value="'%' + keyWord + '%'" />
+        product LIKE #{kw} or model LIKE #{kw} or number LIKE #{kw} or unit LIKE #{kw} or
+        unit_price LIKE #{kw} or warehouse_address LIKE #{kw} or combine LIKE #{kw} or order_number LIKE #{kw} or
+        table_make_time LIKE binary #{kw} or customer LIKE #{kw} or customer_code LIKE #{kw} or customer_phone LIKE #{kw} or
+        customer_company LIKE #{kw} or payment_type LIKE #{kw} or cu_type LIKE #{kw} or payment_account LIKE #{kw} or
+        saler LIKE #{kw} or saler_code LIKE #{kw} or saler_phone LIKE #{kw} or order_time LIKE binary #{kw} or
+        saler_remark LIKE #{kw} or receiver LIKE #{kw} or receiver_address LIKE #{kw} or receiver_express_code LIKE #{kw} or
+        receiver_mobilephone LIKE #{kw} or receiver_phone LIKE #{kw} or receiver_province LIKE #{kw} or receiver_city LIKE #{kw} or
+        receiver_county LIKE #{kw} or product_comment LIKE #{kw} or another_product_comment LIKE #{kw}
+      </if>
+    </where>
+    order by create_time desc
+  </select>
+</mapper>

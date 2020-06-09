@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.business.mapper.OutputInfoMapper">
+  <resultMap id="BaseResultMap" type="com.business.bean.OutputInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="saleinfo_id" jdbcType="BIGINT" property="saleinfoId" />
+    <result column="order_number" jdbcType="VARCHAR" property="orderNumber" />
+    <result column="table_makedate" jdbcType="TIMESTAMP" property="tableMakedate" />
+    <result column="customer" jdbcType="VARCHAR" property="customer" />
+    <result column="customer_code" jdbcType="VARCHAR" property="customerCode" />
+    <result column="customer_phone" jdbcType="VARCHAR" property="customerPhone" />
+    <result column="customer_company" jdbcType="VARCHAR" property="customerCompany" />
+    <result column="payment_method" jdbcType="VARCHAR" property="paymentMethod" />
+    <result column="cu_type" jdbcType="VARCHAR" property="cuType" />
+    <result column="pay_account" jdbcType="VARCHAR" property="payAccount" />
+    <result column="delivery_member" jdbcType="VARCHAR" property="deliveryMember" />
+    <result column="delivery_member_phone" jdbcType="VARCHAR" property="deliveryMemberPhone" />
+    <result column="shipping_date" jdbcType="TIMESTAMP" property="shippingDate" />
+    <result column="delivery_requirements" jdbcType="VARCHAR" property="deliveryRequirements" />
+    <result column="outbound_type" jdbcType="VARCHAR" property="outboundType" />
+    <result column="warehouse_number" jdbcType="VARCHAR" property="warehouseNumber" />
+    <result column="customer_note" jdbcType="VARCHAR" property="customerNote" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="batch_number" jdbcType="VARCHAR" property="batchNumber" />
+    <result column="number" jdbcType="INTEGER" property="number" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="discount" jdbcType="VARCHAR" property="discount" />
+    <result column="after_discount" jdbcType="VARCHAR" property="afterDiscount" />
+    <result column="produce_note" jdbcType="VARCHAR" property="produceNote" />
+    <result column="another_produce_note" jdbcType="VARCHAR" property="anotherProduceNote" />
+    <result column="consignee" jdbcType="VARCHAR" property="consignee" />
+    <result column="shipping_adress" jdbcType="VARCHAR" property="shippingAdress" />
+    <result column="receiving_zip_code" jdbcType="VARCHAR" property="receivingZipCode" />
+    <result column="receiver_mobile_phone" jdbcType="VARCHAR" property="receiverMobilePhone" />
+    <result column="receiver_phone" jdbcType="VARCHAR" property="receiverPhone" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="audit" jdbcType="VARCHAR" property="audit" />
+    <result column="keep_account" jdbcType="VARCHAR" property="keepAccount" />
+    <result column="department_head" jdbcType="VARCHAR" property="departmentHead" />
+    <result column="controller" jdbcType="VARCHAR" property="controller" />
+    <result column="table_maker" jdbcType="VARCHAR" property="tableMaker" />
+    <result column="sales_director" jdbcType="VARCHAR" property="salesDirector" />
+    <result column="salesman" jdbcType="VARCHAR" property="salesman" />
+    <result column="car_number" jdbcType="VARCHAR" property="carNumber" />
+    <result column="deliver" jdbcType="VARCHAR" property="deliver" />
+    <result column="receiver" jdbcType="VARCHAR" property="receiver" />
+    <result column="county" jdbcType="VARCHAR" property="county" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+
+  <select id="selectAllOutput" resultMap="BaseResultMap">
+    SELECT *
+    FROM tb_output
+    <where>
+      <if test="keyWord != null and keyWord != ''">
+        <bind name="kw" value="'%' + keyWord + '%'" />
+        order_number LIKE #{kw} or table_makedate LIKE binary #{kw} or customer LIKE #{kw} or customer_code LIKE #{kw} or
+        customer_phone LIKE #{kw} or customer_company LIKE #{kw} or payment_method LIKE #{kw} or cu_type LIKE #{kw} or
+        pay_account LIKE #{kw} or delivery_member LIKE #{kw} or delivery_member_phone LIKE #{kw} or shipping_date LIKE binary #{kw} or
+        delivery_requirements LIKE #{kw} or outbound_type LIKE #{kw} or warehouse_number LIKE #{kw} or customer_note LIKE #{kw} or
+        goods_name LIKE #{kw} or model LIKE #{kw} or batch_number LIKE #{kw} or number LIKE #{kw} or
+        unit LIKE #{kw} or discount LIKE #{kw} or after_discount LIKE #{kw} or produce_note LIKE #{kw} or
+        another_produce_note LIKE #{kw} or consignee LIKE #{kw} or shipping_adress LIKE #{kw} or receiving_zip_code LIKE #{kw} or
+        receiver_mobile_phone LIKE #{kw} or receiver_phone LIKE #{kw} or province LIKE #{kw} or city LIKE #{kw} or
+        audit LIKE #{kw} or keep_account LIKE #{kw} or department_head LIKE #{kw} or controller LIKE #{kw} or
+        table_maker LIKE #{kw} or sales_director LIKE #{kw} or salesman LIKE #{kw} or car_number LIKE #{kw} or
+        deliver LIKE #{kw} or receiver LIKE #{kw} or county LIKE #{kw}
+      </if>
+    </where>
+    order by create_time desc
+  </select>
+</mapper>

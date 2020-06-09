@@ -1,0 +1,100 @@
+<div class="rightCont">
+    <h2 class="title">用户管理<a href="javascript:;" class="add" id="insert">新增用户</a></h2>
+    <div class="searchBar">
+        <h2 class="addNewStyle">筛选查询</h2>
+        <div class="searchInput">
+            <label for="keyWord">输入搜索：</label>
+            <input type="text" placeholder="账号/姓名/手机/邮箱/职务" id="keyWord"/>
+            <div class="searchBtn">
+                <input type="button" value="查询" id="search" style="width: 80px;"/>
+                <input type="button" value="一键锁 | 解" id="lock" style="width: 100px;"/>
+            </div>
+
+        </div>
+    </div>
+    <div class="table-div tabel">
+        <h2 class="addNewStyle">数据列表</h2>
+        <table class="table table-striped" id="detail_tb"></table>
+    </div>
+
+
+</div>
+
+<!--model模态框-->
+<div class="masker addPop" id="locationInfoModel">
+    <form id="saveForm" enctype="multipart/form-data">
+        <div class="innerCont">
+            <h2 class="addNewStyle"><span id="model-label">修改教室</span><span class="imgP"><img src="images/u469.png"
+                                                                                              alt=""/></span>
+            </h2>
+            <input type="hidden" id="id" name="id"/>
+            <div class="icCont classroom selectCont">
+                <ul>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="userName">登陆账号:</label>
+                        <input type="text" value="" id="userName" name="userName"/>
+                    </li>
+                    <li>
+                        <i style="left:80px;">*</i>
+                        <label for="fullName">姓名:</label>
+                        <input id="fullName" type="text" value="" name="fullName"/>
+                    </li>
+                    <div style="clear:both;"></div>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="mobile">手机号码:</label>
+                        <input id="mobile" type="text" name="mobile"/>
+                    </li>
+                    <li>
+                        <i style="left:80px;">*</i>
+                        <label for="email">邮箱:</label>
+                        <input id="email" type="text" name="email"/>
+                    </li>
+                    <div style="clear:both;"></div>
+                    <li>
+                        <i style="left:52px;">*</i>
+                        <label for="password">登陆密码:</label>
+                        <input type="password" value="" id="password" name="password"/>
+                    </li>
+                    <li>
+                        <i style="left:80px;">*</i>
+                        <label for="select">职务:</label>
+                        <select name="select" id="select" style="border:1px solid #ddd"></select>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="bottomBtn">
+                <input type="button" value="取消" class="cancel" id="cancel"/>
+                <input type="button" value="确认" class="submit" id="confirm_submit"/>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div class="masker addPop" id="locationInfoModel2">
+    <div class="innerCont">
+        <h2 class="addNewStyle"><span id="model-label2">修改教室</span><span class="imgP"><img src="images/u469.png"
+                                                                                           alt=""/></span>
+        </h2>
+
+        <div class="icCont classroom">
+            <ul>
+                <li>
+                    <input type="hidden" id="locationId2"/>
+                    <label for="locationCode2">是否删除:</label>
+                    <input type="text" value="" id="locationCode2" disabled="true"/>
+                </li>
+            </ul>
+        </div>
+        <div class="bottomBtn">
+            <input type="button" value="取消" class="cancel" id="cancel2"/>
+            <input type="button" value="确认" class="submit" id="confirm_submit2"/>
+        </div>
+    </div>
+</div>
+
+
+<script src="js\user\user.js" language="JavaScript"/>
